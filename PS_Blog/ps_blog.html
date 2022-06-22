@@ -1,0 +1,245 @@
+<html>
+	<head>
+		<title>Powershell Scripting Blog</title>
+	</head>
+	<body>
+		<div id="shortDesc">
+			<h1><b>Welcome to Dan's Powershell Blog!</b></h1>
+			Here is a guilde to learning 
+			<a href="https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2" target="_blank">
+				<b>Microsoft Powershell &copy</b>
+			</a>
+			with my ecperiences. I am learning and building my Powershell knowledge from the basics and understanding the purpose of Powershell to simple commands, then later will get into scripts and some more complexities with adding a GUI interface via C#. <br/>
+			I hope that this blog will help those that want to learn the basics of powershell or understand the "Power" that it beholds as a Systems Administrator or just even someone learning as just a hobby. Without further adue, lets just dive into it!<br/>
+		</div>
+		<!--
+			blog post with border line
+			Title:,Date:,Desc:,Photo:
+		-->
+		<!--Line-Break-->
+		<hr>
+		<!--Post-->
+		<div id="post0"> 
+			<!--Date and Title-->
+			<h4 style="color: blue">
+				<u>
+				6/18/22<br>
+				Episode 1: Let's get started: Powershell Basics 
+				</u>
+			</h4>
+			<!--Main Content-->
+			<div>
+				<!--Section Title-->
+				<p>
+					<b>
+					What is powershell?
+					</b>
+				</p>
+				<p>
+					Powershell is a cross-platform that uses command-line shell language, and configuration management framework. Powershell is a cross platform task automation solution for Windows, Linux, and macOS. Powershell is a modern command shell that combines the best features of other popular shells and even includes alot of aliases to help those comming from other shell platforms. It also accepts and returns .NET objects. Here are some features that Powershell includes.
+				</p>
+				<ul>
+					<li>Strong commandline history</li>
+					<li>Tab completion and command prediction</li>
+					<li>Supports command and parameter aliases</li>
+					<li>Pipeline for chaining commands</li>
+					<li>Elaborate in-console help system (simillar to Unix <i>man</i> pages)</li>
+				</ul>
+				<!--Section Title-->
+				<p>
+					<b>
+					Why is powershell so helpful?
+					</b>
+				</p>
+				<p>
+					Powershell is helpful in many differnt ways. It can be used for system administrator controls, evnironment setup, automating tasks, and user system control. There will be more details added to this later.
+				</p>
+				<!--Section Title-->
+				<p>
+					<b>
+					Some basic Syntax. Nouns and Verbs.
+					</b>
+				</p>
+				<p>
+					So with Powershell the syntax works by using a <b>Noun</b> and a <b>Verb</b>. The Verb usually goes first <i>i.e. Get</i> followed by a <b>-</b> and then the Noun. <i>i.e. Get-Services</i>. This as a whole is called a <b>Commandlet</b> or <b>cmdlets</b>.
+				</p>
+				<!--Section Title-->
+				<p>
+					<b>
+					Understanding your resources.
+					</b>
+				</p>
+				<p>
+					Powershell has a extremely resourceful help section called <b>Get-Help</b>. It can be a very helpful tool to use when trying to work on a task and uderstanding the parameters and the arguments needed or not for each itteration of the command. Lets try it! Open up Powershell on your computer. If it is not on your machine you can download the latest version <a href="https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.2" target="_blank">here</a>.
+				</p>
+				<textarea disabled="true" cols="100" rows="1">Get-Help
+				</textarea><br><br>
+				<img src="./imgs/Get-Help.png" alt="Get-Help"><br><br>
+				<p>
+					As you can see when you put in this comdlet, it sends you a help guide and explains the different aspects to what the Get-Help cmdlet does. You can use this commandlet to get help on other cmdlets by putting the next cmdlet after it.<br><br>
+				</p>
+				<textarea disabled="true" cols="100" rows="1">Get-Help Get-Alias
+				</textarea><br><br>
+				<img src="./imgs/Get-Help_Get-Alias.png" alt="Get-Help"><br><br>
+				<p>
+					Here as you can see the Get-Help cmdlet helps to get the name, syntax, alias, and remarks about the cmdlet in question. Sometimes you can see more of a long description or detailed list by adding the <b>flag</b>, uses <i>-</i> character, <b>-Detailed</b>. Let's try it!
+				</p>
+				<textarea disabled="true" cols="100" rows="1">Get-Help Get-Alias -Detailed
+				</textarea><br><br>
+				<img src="./imgs/Get-Help_Get-Alias_Detailed.png" alt="Get-Help"><br><br>
+				<p>
+					Here you can see that it even now explains the parameters you can use and in some cases MUST use. If you want to test out some cndlets of your own feel free you can do that now. Also, you should try the <i>TAB</i> key to cycle through the optional flags or parameters you can choose from for your full command.
+				</p>
+				<p>
+					Now there is another helpful tool you can use to work on code at the same time. So first clear the screen by using the cmdlet <b>Clear-Host</b> or the alias <b>cls</b>. Then type in <b>Get-Help Get-Alias -Showwindow</b>. This will open up the help for this cmdlet in a seperate window, which is scalable and can be searched. Ok, now its your turn.
+				</p>
+				<textarea disabled="true" cols="100" rows="1">Get-Help Get-Alias -Showwindow
+				</textarea><br><br>
+				<img src="./imgs/Get-Help_Get-Alias_Showwindow.png" alt="Get-Help"><br><br>
+				<p>
+					As you can see it is not the Powershell Terminal Window and it is totally seperate so you can have it open while working in the terminal seperately. This allows multitasking and makes the Help cmdlet so much more powerful. If you want the latest help, right click on the Powershell application and click <i>Run as Administrator</i> and type in <b>Update-Help</b>.
+				</p>
+			</div><!--End Main Content-->
+		</div><!--End Post-->
+		<hr>
+		<!--Post-->
+		<div id="post1"> 
+			<!--Date and Title-->
+			<h4 style="color: blue">
+				<u>
+				6/19/22<br>
+				Episode 2: Running Powershell as User vs Administrator 
+				</u>
+			</h4>
+			<!--Main Content-->
+			<div>
+				<!--Section Title-->
+				<p>
+					<b>
+					Why would you want to run as an Aministrator vs a User?
+					</b>
+				</p>
+				<p>
+					There are several reasons that one would like to run Powershell as an Administrator. The first would be to make system settings or to make changes to the execution policy. We will dive more into system changes later on, but today we will talk about the <b>Execution Policy</b>. Now there are ways that you can search for things in powershell so lets try to use <b>Get-Help</b> for the <b>Get-ExecutionPolicy</b>. Lets try and search for anything that has the words <i>execution</i> in them. The <b>*</b> is used as a wild card search. This means that if you put <b>Get-Help *execution*</b> then that will find anything with execution in it and it can have something on either side of it. Let's see!
+				</p>
+				<textarea disabled="true" cols="100" rows="1">Get-Help Get-Help *execution*
+				</textarea><br><br>
+				<img src="./imgs/Get-Help_Get-Alias_execution.png" alt="Get-Help"><br><br>
+				<p>
+					Here you can see a table with a list of three cmdlets. I want to take notice for two of them. The first one is <b>Get-ExceptionPolicy</b>, and the second one is <b>Set-ExceptionPolicy</b>. These are the permissions for users to run Powershell scripts. By default the Exception Policy is set to Restricted. There are different scopes:<br>
+				</p>
+				<ul>
+					<li>All Signed:<br>
+						-Scripts can run<br>
+						-Requires all scripts and configuration files to be signed by a trusted publisher, including scripts that you write on the local computer<br>
+						-Prompts you before running scripts from publishers that you havent yet classified as trusted or untrusted<br>
+						-Risks running signed, but malicious scripts<br>
+					</li>
+					<li>Bypass<br>
+						-Nothing is blocked and there are no warnings or prompts<br>
+						-This execution policy is designed for configurations in which a Powershell script is built into a larger application or for configurations in which Powershell is the foundation for the program that has its own security model.<br>
+					</li>
+					<li>Default<br>
+						-Sets the default execution policy<br>
+						-<i>Restricted</i> for Windows clients<br>
+						-<i>RemoteSigned</i> for Windows Servers<br>
+					</li>
+					<li>RemoteSigned<br>
+						-The default execution policy for Windows server computers<br>
+						-Scripts can run<br>
+						-Requires a digital signature from a trusted publisher on scripts and configuration files that are downloaded from the internet which includes email and instant messaging programs<br>
+						-Doesn't require digital signatures on scripts that are written on the local computer and not downloaded from the internet<br>
+						-Runs scripts that are downloaded from the internet and not signed, if the scripts are unblocked, such as by using the <b>Unblock-File</b> cmdlet<br>
+						-Risks running unsigned scripts from sources other than the internet and signed scripts that could be malicious<br>
+					</li>
+					<li>Restricted<br>
+						-The default execution policy for Windows client computers<br>
+						-Permits individual commands, but does not allow scripts<br>
+						-Prevents running of all script files, including formatting and configuration files (.ps1xml), module script files (.psm1), and PowerShell profiles (.ps1)<br>
+					</li>
+					<li>Undefined<br>
+						-There is no execution policy set in the current scope<br>
+						-If the execution policy in all scopes is Undefined, the effective execution policy is Restricted for Windows clients and RemoteSigned for Windows Server<br>
+					</li>
+					<li>Unrestricted<br>
+						-The default execution policy for non-Windows computers and cannot be changed<br>
+						-Unsigned scripts can run. There is a risk of running malicious scripts<br>
+						-Warns the user before running scripts and configuration files that are not from the local intranet zone<br>
+					</li>
+				</ul>
+				<p>
+					Now Powershell by default will not allow you to run any scripts what so ever becasue it is set to <b>Restricted</b>. If you use the cmdlet <b>Get-ExecutionPolicy</b>, then you will see what it is set to. Now there are several ways around this, becasue Microsoft did not intend it to be a Security protocol for the system there are work arounds which allow you to run scripts and to also run local commands and cmdlets too. Lets go over ways around this.<br>
+					First way is to open up Powershell as Administrator. Here you can use the cmdlet <b>Set-ExecutionPolicy</b>. This will allow you to change the Execution Policy as a whole for the User. This may not be exactly what you are looking for becasuse you may want to run a script without being an Administrator for the system. You may want to make a script for automation that will help users not just Administrators.
+				</p>
+				<p>
+					The Next option that I have found to be quite successfull is the <b>-ExecutionPolicy -Bypass</b> flags. What happens is, it allows the user to bypass the -ExecutionPolicy. This will allow the script to be run without the limitations of the <b>Restricted</b> Execution Policy. I have not tried it yet with more complex scripts yet, but will try that soon enough. Here is a simple <b>Write-Host</b> cmdlet, which writes to the screen like <b>Echo</b> will in the Command Promt. Ok, I will show you a few things; First, I will show you how you can use <b>Write-Host</b> or Echo in the Powershell terminal and it will show you the result that would be given based off the arument passed through the cmdlet when run. The second thing, will be how to make a Powershell file (estenstion .ps10) that will not run if you try it. Lastly, I will show you an example of how you can bypass this, to start writing scripts and saving them to a file and running the script from the terminal. Ok, Let's do it!
+				</p>
+				<textarea disabled="true" cols="100" rows="1">Echo "Hello"
+				</textarea><br><br>
+				<textarea disabled="true" cols="100" rows="1">Echo Hello
+				</textarea><br><br>
+				<textarea disabled="true" cols="100" rows="1">Write-Host "hello world"
+				</textarea><br><br>
+				<textarea disabled="true" cols="100" rows="1">write-host hello world
+				</textarea><br><br>
+				<img src="./imgs/Echo_Write-Host.png" alt="reference image"><br><br>
+				<p>
+					So we can see that they each output the same. It will be interesting to see how that effects when saving it as a variable and seeing if there is a differnce and if it effects anything. But you can see the alias working the same as the true powershell cmdlet. 
+				</p>
+				<p>
+					Ok so now the next thing you will need is a proper IDE for debugging and testing your code. After researching what the community says about it, they recomend the Visual Studio Code. So <a href="https://code.visualstudio.com/download" target="_blank">here</a> is a link to the free download through Microsoft. Go and download that now, or some other powershell programming edditor (<a href="https://notepad-plus-plus.org/downloads/v8.4.2/" target="_blank">Notepadd++</a>, <a href="https://www.sublimetext.com/3" target="_blank">Sublime Text</a>, etc.)
+				</p>
+				<p>
+					Ok now open up the text editor. I typically like to set the language to the code that I am writing in. So In Visual Code you will select new text file. It will promt you to select a language and search for Powershell and select the language and save your file locally on your computer. Type in the command below and save the file as a .ps1 file extension.
+				</p>
+				<textarea disabled="true" cols="100" rows="1">Write-Host "Congratulations! Your first script executed successfully"
+				</textarea><br><br>
+				<textarea disabled="true" cols="100" rows="1">Write-Host ""
+				</textarea><br><br>
+				<textarea disabled="true" cols="100" rows="1">Write-Host "You wrote your first Powershell script"
+				</textarea><br><br>
+				<img src="./imgs/VS_1.1.png" alt="reference image"><br><br>
+				<p>
+					Once you have saved your file we are going to open up Powershell and run the scrpit though the terminal. So copy the following command into the terminal. (Replace the path with your full path the file on your machine)
+				</p>
+				<textarea disabled="true" cols="100" rows="1">Powershell.exe -ExecutionPolicy Bypass -File C:\Users\DK\Documents\Code\Powershell\Testing\test1.ps1
+				</textarea><br><br>
+				<img src="./imgs/VS_1.2.png" alt="reference image"><br><br>
+				You Now made your first Powershell script and now we can work on other processes with powershell comming up.
+			</div>
+		</div>
+	</body>
+</html>
+
+<!--
+	<textarea disabled="true" cols="100" rows="1">Echo "Hello World"
+	</textarea><br><br>
+	<img src="./imgs/file.png" alt="reference image"><br><br>
+-->
+<!--Post-->
+<!--
+	<div id="post2"> 
+		<h4 style="color: blue">
+			<u>
+			6/20/22<br>
+			Episode 3: Episode Title Here
+			</u>
+		</h4>
+		<div>
+			<p>
+				<b>
+				Title Here
+				</b>
+			</p>
+			<p>
+				First Paragraph
+			</p>
+			<textarea disabled="true" cols="100" rows="1">text input area
+			</textarea><br><br>
+			<img src="./imgs/file.png" alt="reference image"><br><br>
+			<p>
+				Second Paragraph
+			</p>
+		</div>
+	</div>
+-->
