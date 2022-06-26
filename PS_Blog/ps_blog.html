@@ -208,38 +208,209 @@
 				You Now made your first Powershell script and now we can work on other processes with powershell comming up.
 			</div>
 		</div>
+		<div id="post2"> 
+			<h4 style="color: blue">
+				<u>
+				6/25/22<br>
+				Episode 3: Other Valuable Cmdlets
+				</u>
+			</h4>
+			<div>
+				<p>
+					<b>
+					What are some other important cmdlets?
+					</b>
+				</p>
+				<p>
+					So lets dive into other cmdlets that will be important in this Powershell journey. Now the thing that I want you to know is that they all are important and all add value to Powershell as a whole. But we will step through some ones that you may use more often. Here is a list of the cmdlets I will go over. We will go over the ressults individually. As we run through each cmdlet, see if you can think of processes that these can help to automate
+				</p>
+				<table style="padding: px;border: 1px solid blue; border-collapse: collapse;">
+						<th style="color: blue;padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							<b>Cmdlet Name</b>
+						</th>
+						<th style="color: blue;padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							<b>Short Description</b>
+						</th>
+						<th style="color: blue;padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							<b>Example</b>
+						</th>
+					</tr>
+					<tr>
+						<th style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							<i>
+								Get command
+							</i>
+						</th>
+						<td style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							Gets the details on the command selected as the argument
+						</td>
+						<td style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							Get-Command g*service
+						</td>
+					</tr>
+					<tr>
+						<th style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							<i>
+								Get service
+							</i>
+						</th>
+						<td style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							Outputs a list of installed services on the system
+						</td>
+						<td style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							Get-Services g*
+						</td>
+					</tr>
+					<tr>
+						<th style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							<i>
+								Convert to html
+							</i>
+						</th>
+						<td style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							Converts the code to a sendable/recievable .html format
+						</td>
+						<td style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							ConvertTo-Html -InputObject (Get-Date)
+						</td>
+					</tr>
+					<tr>
+						<th style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							<i>
+								Export to .csv file
+						</th>
+						<td style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							Export a file to .csv file format 
+						</td>
+						<td style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							Get-Command *environment | -Name Export-Csv -Path .\WmiData.csv -NoTypeInformation
+						</td>
+					</tr>
+					<tr>
+						<th style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							<i>
+								Select object
+							</i>
+						</th>
+						<td style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							Allows for specific selection of properties to be called as an argument or changed
+						</td>
+						<td style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							Get-Process | Select-Object -Property ProcessName, Id, WS
+						</td>
+					</tr>
+					<tr>
+						<th style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							<i>
+								Get process
+							</i>
+						</th>
+						<td style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							Gets the list of processes running on the local computer
+						</td>
+						<td style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							Get-Process winword, explorer | Format-List *
+						</td>
+					</tr>
+					<tr>
+						<th style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							<i>
+								Stop process
+							</i>
+						</th>
+						<td style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							Stops the process selected as an argument on the local computer
+						</td>
+						<td style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							Stop-Process -Name "notepad"
+						</td>
+					</tr>
+					<tr>
+						<th style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							<i>
+								Start process
+							</i>
+						</th>
+						<td style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							Starts the process selected as an argument on the local computer
+						</td>
+						<td style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							Start-Process -Name "notepad"
+						</td>
+					</tr>
+					<tr>
+						<th style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							<i>
+								Invoke web request
+							</i>
+						</th>
+						<td style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							Gets content from a web page on the internet
+						</td>
+						<td style="padding: 10px;border: 1px solid blue; border-collapse: collapse;">
+							(Invoke-WebRequest -Uri "https://devblogs.microsoft.com/powershell/").Links.Href
+						</td>
+					</tr>
+				</table>
+				<p>
+					Ok so as you can see some of these examples may look confusing or overwhelming first but that is totally unsderstandable. We will go through each one and test them and then break them down in more detail. One step I would recommend doing before trying a new cmdlet I would look up the help menu for each one and then to get some examples by adding the <b>-Detailed</b> flag <i>(spoiler* some of these examples are from there)</i>. Now that we're ready to get started lets open our Powershell terminal and lets get started.
+				</p>
+				<p>
+					So the first and second one we will combine together. They are the <b>Get-Command</b> and <b>Get-Service</b> cmdlets. They will help to Get the commands you are looking for a certain task in a script. It can be a powerful tool that can help to get the right tools need to complete the lines of code you need. Let's take a look at it.
+				</p>
+				<textarea disabled="true" cols="100" rows="1">Get-Command get*service
+				</textarea><br><br>
+				<img src="./imgs/PS_3.1.png" alt="reference image"><br><br>
+				<p>
+					As you can see the wild card <b>*</b> is a very helpfull tool. What it does is alows there to be anything to fill its spot. So as you can see here, our output is all services that start with the letter <b>g</b> and must end in <b>service</b>. Here you can get a shorter list than just <b>Get-Command *service</b>
+				</p>
+				<p>
+					The next cmdlet we will work with is <b>Get-Service</b>. Here as you see it gets the list of services running on your local machine. 
+				</p>
+				<textarea disabled="true" cols="100" rows="1">Get-Service g*
+				</textarea><br><br>
+				<img src="./imgs/PS_3.2.png" alt="reference image"><br><br>
+				<p>
+					As you can see it lists all the Services that are runing and it will show if it is stopped or running.This is important to know so that you do not stop a serivice from runnung that you do not want to and vice versa for starting a service.
+				</p>
+				<p>
+					The next cmdlet we will test out is the <b>ConvertTo-Html</b>
+					
+				</p>
+			</div>
+		</div>
 	</body>
 </html>
-
+			<!--Text block and image-->
 <!--
-	<textarea disabled="true" cols="100" rows="1">Echo "Hello World"
-	</textarea><br><br>
-	<img src="./imgs/file.png" alt="reference image"><br><br>
+				<textarea disabled="true" cols="100" rows="1">Echo "Hello World"
+				</textarea><br><br>
+				<img src="./imgs/file.png" alt="reference image"><br><br>
 -->
-<!--Post-->
+			<!--Post-->
 <!--
-	<div id="post2"> 
-		<h4 style="color: blue">
-			<u>
-			6/20/22<br>
-			Episode 3: Episode Title Here
-			</u>
-		</h4>
-		<div>
-			<p>
-				<b>
-				Title Here
-				</b>
-			</p>
-			<p>
-				First Paragraph
-			</p>
-			<textarea disabled="true" cols="100" rows="1">text input area
-			</textarea><br><br>
-			<img src="./imgs/file.png" alt="reference image"><br><br>
-			<p>
-				Second Paragraph
-			</p>
-		</div>
-	</div>
+			<div id="post2"> 
+				<h4 style="color: blue">
+					<u>
+					Enter Date Here<br>
+					Episode #: Episode Title Here
+					</u>
+				</h4>
+				<div>
+					<p>
+						<b>
+						Title Here
+						</b>
+					</p>
+					<p>
+						First Paragraph
+					</p>
+					<textarea disabled="true" cols="100" rows="1">text input area
+					</textarea><br><br>
+					<img src="./imgs/file.png" alt="reference image"><br><br>
+					<p>
+						Second Paragraph
+					</p>
+				</div>
+			</div>
 -->
